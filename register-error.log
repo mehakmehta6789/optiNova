@@ -1,0 +1,20 @@
+[2026-03-04T19:09:02.139Z] TypeError: next is not a function
+    at model.hashPassword (C:\Users\mehak\Downloads\eyeglass\backend\models\User.js:17:3)
+    at async Kareem.execPre (C:\Users\mehak\Downloads\eyeglass\node_modules\kareem\index.js:70:24)
+    at async model.$__save (C:\Users\mehak\Downloads\eyeglass\node_modules\mongoose\lib\model.js:376:5)
+    at async model.save (C:\Users\mehak\Downloads\eyeglass\node_modules\mongoose\lib\model.js:642:5)
+    at async C:\Users\mehak\Downloads\eyeglass\node_modules\mongoose\lib\model.js:2778:9
+    at async Promise.all (index 0)
+    at async Function.create (C:\Users\mehak\Downloads\eyeglass\node_modules\mongoose\lib\model.js:2763:11)
+    at async register (C:\Users\mehak\Downloads\eyeglass\backend\controllers\authController.js:35:18)
+
+[2026-03-04T19:09:53.913Z] TypeError: next is not a function
+    at model.hashPassword (C:\Users\mehak\Downloads\eyeglass\backend\models\User.js:17:3)
+    at async Kareem.execPre (C:\Users\mehak\Downloads\eyeglass\node_modules\kareem\index.js:70:24)
+    at async model.$__save (C:\Users\mehak\Downloads\eyeglass\node_modules\mongoose\lib\model.js:376:5)
+    at async model.save (C:\Users\mehak\Downloads\eyeglass\node_modules\mongoose\lib\model.js:642:5)
+    at async C:\Users\mehak\Downloads\eyeglass\node_modules\mongoose\lib\model.js:2778:9
+    at async Promise.all (index 0)
+    at async Function.create (C:\Users\mehak\Downloads\eyeglass\node_modules\mongoose\lib\model.js:2763:11)
+    at async register (C:\Users\mehak\Downloads\eyeglass\backend\controllers\authController.js:35:18)
+

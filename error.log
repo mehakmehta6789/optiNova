@@ -1,0 +1,184 @@
+[2026-03-04T19:35:14.479Z] GET /customer/cart
+ReferenceError: C:\Users\mehak\Downloads\eyeglass\backend\views\customer\cart.ejs:5
+    3| <section class="card">
+    4|   <h1>Your Cart</h1>
+ >> 5|   <% if (error) { %>
+    6|     <p class="error"><%= error %></p>
+    7|   <% } %>
+    8|   <% if (!cart.items.length) { %>
+
+error is not defined
+    at eval ("C:\\Users\\mehak\\Downloads\\eyeglass\\backend\\views\\customer\\cart.ejs":13:8)
+    at cart (C:\Users\mehak\Downloads\eyeglass\node_modules\ejs\lib\cjs\ejs.js:643:23)
+    at tryHandleCache (C:\Users\mehak\Downloads\eyeglass\node_modules\ejs\lib\cjs\ejs.js:254:42)
+    at ejs.renderFile [as engine] (C:\Users\mehak\Downloads\eyeglass\node_modules\ejs\lib\cjs\ejs.js:447:12)
+    at View.render (C:\Users\mehak\Downloads\eyeglass\node_modules\express\lib\view.js:139:8)
+    at tryRender (C:\Users\mehak\Downloads\eyeglass\node_modules\express\lib\application.js:627:10)
+    at Function.render (C:\Users\mehak\Downloads\eyeglass\node_modules\express\lib\application.js:574:3)
+    at ServerResponse.render (C:\Users\mehak\Downloads\eyeglass\node_modules\express\lib\response.js:923:7)
+    at cartPage (C:\Users\mehak\Downloads\eyeglass\backend\controllers\customerController.js:27:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5) {
+  path: 'C:\\Users\\mehak\\Downloads\\eyeglass\\backend\\views\\customer\\cart.ejs'
+}
+
+[2026-03-04T19:35:43.939Z] GET /customer/cart
+ReferenceError: C:\Users\mehak\Downloads\eyeglass\backend\views\customer\cart.ejs:5
+    3| <section class="card">
+    4|   <h1>Your Cart</h1>
+ >> 5|   <% if (error) { %>
+    6|     <p class="error"><%= error %></p>
+    7|   <% } %>
+    8|   <% if (!cart.items.length) { %>
+
+error is not defined
+    at eval ("C:\\Users\\mehak\\Downloads\\eyeglass\\backend\\views\\customer\\cart.ejs":13:8)
+    at cart (C:\Users\mehak\Downloads\eyeglass\node_modules\ejs\lib\cjs\ejs.js:643:23)
+    at tryHandleCache (C:\Users\mehak\Downloads\eyeglass\node_modules\ejs\lib\cjs\ejs.js:254:42)
+    at ejs.renderFile [as engine] (C:\Users\mehak\Downloads\eyeglass\node_modules\ejs\lib\cjs\ejs.js:447:12)
+    at View.render (C:\Users\mehak\Downloads\eyeglass\node_modules\express\lib\view.js:139:8)
+    at tryRender (C:\Users\mehak\Downloads\eyeglass\node_modules\express\lib\application.js:627:10)
+    at Function.render (C:\Users\mehak\Downloads\eyeglass\node_modules\express\lib\application.js:574:3)
+    at ServerResponse.render (C:\Users\mehak\Downloads\eyeglass\node_modules\express\lib\response.js:923:7)
+    at cartPage (C:\Users\mehak\Downloads\eyeglass\backend\controllers\customerController.js:27:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5) {
+  path: 'C:\\Users\\mehak\\Downloads\\eyeglass\\backend\\views\\customer\\cart.ejs'
+}
+
+[2026-03-04T19:35:53.240Z] GET /customer/cart
+ReferenceError: C:\Users\mehak\Downloads\eyeglass\backend\views\customer\cart.ejs:5
+    3| <section class="card">
+    4|   <h1>Your Cart</h1>
+ >> 5|   <% if (error) { %>
+    6|     <p class="error"><%= error %></p>
+    7|   <% } %>
+    8|   <% if (!cart.items.length) { %>
+
+error is not defined
+    at eval ("C:\\Users\\mehak\\Downloads\\eyeglass\\backend\\views\\customer\\cart.ejs":13:8)
+    at cart (C:\Users\mehak\Downloads\eyeglass\node_modules\ejs\lib\cjs\ejs.js:643:23)
+    at tryHandleCache (C:\Users\mehak\Downloads\eyeglass\node_modules\ejs\lib\cjs\ejs.js:254:42)
+    at ejs.renderFile [as engine] (C:\Users\mehak\Downloads\eyeglass\node_modules\ejs\lib\cjs\ejs.js:447:12)
+    at View.render (C:\Users\mehak\Downloads\eyeglass\node_modules\express\lib\view.js:139:8)
+    at tryRender (C:\Users\mehak\Downloads\eyeglass\node_modules\express\lib\application.js:627:10)
+    at Function.render (C:\Users\mehak\Downloads\eyeglass\node_modules\express\lib\application.js:574:3)
+    at ServerResponse.render (C:\Users\mehak\Downloads\eyeglass\node_modules\express\lib\response.js:923:7)
+    at cartPage (C:\Users\mehak\Downloads\eyeglass\backend\controllers\customerController.js:27:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5) {
+  path: 'C:\\Users\\mehak\\Downloads\\eyeglass\\backend\\views\\customer\\cart.ejs'
+}
+
+[2026-03-04T19:37:09.348Z] GET /customer/cart
+ReferenceError: C:\Users\mehak\Downloads\eyeglass\backend\views\customer\cart.ejs:5
+    3| <section class="card">
+    4|   <h1>Your Cart</h1>
+ >> 5|   <% if (error) { %>
+    6|     <p class="error"><%= error %></p>
+    7|   <% } %>
+    8|   <% if (!cart.items.length) { %>
+
+error is not defined
+    at eval ("C:\\Users\\mehak\\Downloads\\eyeglass\\backend\\views\\customer\\cart.ejs":13:8)
+    at cart (C:\Users\mehak\Downloads\eyeglass\node_modules\ejs\lib\cjs\ejs.js:643:23)
+    at tryHandleCache (C:\Users\mehak\Downloads\eyeglass\node_modules\ejs\lib\cjs\ejs.js:254:42)
+    at ejs.renderFile [as engine] (C:\Users\mehak\Downloads\eyeglass\node_modules\ejs\lib\cjs\ejs.js:447:12)
+    at View.render (C:\Users\mehak\Downloads\eyeglass\node_modules\express\lib\view.js:139:8)
+    at tryRender (C:\Users\mehak\Downloads\eyeglass\node_modules\express\lib\application.js:627:10)
+    at Function.render (C:\Users\mehak\Downloads\eyeglass\node_modules\express\lib\application.js:574:3)
+    at ServerResponse.render (C:\Users\mehak\Downloads\eyeglass\node_modules\express\lib\response.js:923:7)
+    at cartPage (C:\Users\mehak\Downloads\eyeglass\backend\controllers\customerController.js:27:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5) {
+  path: 'C:\\Users\\mehak\\Downloads\\eyeglass\\backend\\views\\customer\\cart.ejs'
+}
+
+[2026-03-04T19:37:10.476Z] GET /customer/cart
+ReferenceError: C:\Users\mehak\Downloads\eyeglass\backend\views\customer\cart.ejs:5
+    3| <section class="card">
+    4|   <h1>Your Cart</h1>
+ >> 5|   <% if (error) { %>
+    6|     <p class="error"><%= error %></p>
+    7|   <% } %>
+    8|   <% if (!cart.items.length) { %>
+
+error is not defined
+    at eval ("C:\\Users\\mehak\\Downloads\\eyeglass\\backend\\views\\customer\\cart.ejs":13:8)
+    at cart (C:\Users\mehak\Downloads\eyeglass\node_modules\ejs\lib\cjs\ejs.js:643:23)
+    at tryHandleCache (C:\Users\mehak\Downloads\eyeglass\node_modules\ejs\lib\cjs\ejs.js:254:42)
+    at ejs.renderFile [as engine] (C:\Users\mehak\Downloads\eyeglass\node_modules\ejs\lib\cjs\ejs.js:447:12)
+    at View.render (C:\Users\mehak\Downloads\eyeglass\node_modules\express\lib\view.js:139:8)
+    at tryRender (C:\Users\mehak\Downloads\eyeglass\node_modules\express\lib\application.js:627:10)
+    at Function.render (C:\Users\mehak\Downloads\eyeglass\node_modules\express\lib\application.js:574:3)
+    at ServerResponse.render (C:\Users\mehak\Downloads\eyeglass\node_modules\express\lib\response.js:923:7)
+    at cartPage (C:\Users\mehak\Downloads\eyeglass\backend\controllers\customerController.js:27:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5) {
+  path: 'C:\\Users\\mehak\\Downloads\\eyeglass\\backend\\views\\customer\\cart.ejs'
+}
+
+[2026-03-04T19:37:18.263Z] GET /customer/cart
+ReferenceError: C:\Users\mehak\Downloads\eyeglass\backend\views\customer\cart.ejs:5
+    3| <section class="card">
+    4|   <h1>Your Cart</h1>
+ >> 5|   <% if (error) { %>
+    6|     <p class="error"><%= error %></p>
+    7|   <% } %>
+    8|   <% if (!cart.items.length) { %>
+
+error is not defined
+    at eval ("C:\\Users\\mehak\\Downloads\\eyeglass\\backend\\views\\customer\\cart.ejs":13:8)
+    at cart (C:\Users\mehak\Downloads\eyeglass\node_modules\ejs\lib\cjs\ejs.js:643:23)
+    at tryHandleCache (C:\Users\mehak\Downloads\eyeglass\node_modules\ejs\lib\cjs\ejs.js:254:42)
+    at ejs.renderFile [as engine] (C:\Users\mehak\Downloads\eyeglass\node_modules\ejs\lib\cjs\ejs.js:447:12)
+    at View.render (C:\Users\mehak\Downloads\eyeglass\node_modules\express\lib\view.js:139:8)
+    at tryRender (C:\Users\mehak\Downloads\eyeglass\node_modules\express\lib\application.js:627:10)
+    at Function.render (C:\Users\mehak\Downloads\eyeglass\node_modules\express\lib\application.js:574:3)
+    at ServerResponse.render (C:\Users\mehak\Downloads\eyeglass\node_modules\express\lib\response.js:923:7)
+    at cartPage (C:\Users\mehak\Downloads\eyeglass\backend\controllers\customerController.js:27:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5) {
+  path: 'C:\\Users\\mehak\\Downloads\\eyeglass\\backend\\views\\customer\\cart.ejs'
+}
+
+[2026-03-04T19:42:24.215Z] GET /admin/orders
+ReferenceError: C:\Users\mehak\Downloads\eyeglass\backend\views\admin\orders.ejs:5
+    3| <section class="card">
+    4|   <h1>Order Management</h1>
+ >> 5|   <% if (error) { %>
+    6|     <p class="error"><%= error %></p>
+    7|   <% } %>
+    8|   <% if (success) { %>
+
+error is not defined
+    at eval ("C:\\Users\\mehak\\Downloads\\eyeglass\\backend\\views\\admin\\orders.ejs":13:8)
+    at orders (C:\Users\mehak\Downloads\eyeglass\node_modules\ejs\lib\cjs\ejs.js:643:23)
+    at tryHandleCache (C:\Users\mehak\Downloads\eyeglass\node_modules\ejs\lib\cjs\ejs.js:254:42)
+    at ejs.renderFile [as engine] (C:\Users\mehak\Downloads\eyeglass\node_modules\ejs\lib\cjs\ejs.js:447:12)
+    at View.render (C:\Users\mehak\Downloads\eyeglass\node_modules\express\lib\view.js:139:8)
+    at tryRender (C:\Users\mehak\Downloads\eyeglass\node_modules\express\lib\application.js:627:10)
+    at Function.render (C:\Users\mehak\Downloads\eyeglass\node_modules\express\lib\application.js:574:3)
+    at ServerResponse.render (C:\Users\mehak\Downloads\eyeglass\node_modules\express\lib\response.js:923:7)
+    at ordersPage (C:\Users\mehak\Downloads\eyeglass\backend\controllers\adminController.js:88:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5) {
+  path: 'C:\\Users\\mehak\\Downloads\\eyeglass\\backend\\views\\admin\\orders.ejs'
+}
+
+[2026-03-04T19:42:25.778Z] GET /admin/orders
+ReferenceError: C:\Users\mehak\Downloads\eyeglass\backend\views\admin\orders.ejs:5
+    3| <section class="card">
+    4|   <h1>Order Management</h1>
+ >> 5|   <% if (error) { %>
+    6|     <p class="error"><%= error %></p>
+    7|   <% } %>
+    8|   <% if (success) { %>
+
+error is not defined
+    at eval ("C:\\Users\\mehak\\Downloads\\eyeglass\\backend\\views\\admin\\orders.ejs":13:8)
+    at orders (C:\Users\mehak\Downloads\eyeglass\node_modules\ejs\lib\cjs\ejs.js:643:23)
+    at tryHandleCache (C:\Users\mehak\Downloads\eyeglass\node_modules\ejs\lib\cjs\ejs.js:254:42)
+    at ejs.renderFile [as engine] (C:\Users\mehak\Downloads\eyeglass\node_modules\ejs\lib\cjs\ejs.js:447:12)
+    at View.render (C:\Users\mehak\Downloads\eyeglass\node_modules\express\lib\view.js:139:8)
+    at tryRender (C:\Users\mehak\Downloads\eyeglass\node_modules\express\lib\application.js:627:10)
+    at Function.render (C:\Users\mehak\Downloads\eyeglass\node_modules\express\lib\application.js:574:3)
+    at ServerResponse.render (C:\Users\mehak\Downloads\eyeglass\node_modules\express\lib\response.js:923:7)
+    at ordersPage (C:\Users\mehak\Downloads\eyeglass\backend\controllers\adminController.js:88:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5) {
+  path: 'C:\\Users\\mehak\\Downloads\\eyeglass\\backend\\views\\admin\\orders.ejs'
+}
+

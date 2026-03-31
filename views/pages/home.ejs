@@ -1,0 +1,208 @@
+<%- include('../partials/header', { title }) %>
+
+<section class="hero hero-carousel" aria-label="Featured collections">
+  <div class="carousel-slides">
+    <article class="carousel-slide slide-one is-active" aria-hidden="false">
+      <div class="carousel-content">
+        <h1>Find Your Perfect Vision Style</h1>
+        <p>Shop eyeglasses, sunglasses, and contact lenses with easy filters and secure checkout.</p>
+        <div class="hero-actions">
+          <a class="btn" href="/products">Browse All Products</a>
+          <% if (!currentUser) { %>
+            <a class="btn btn-outline" href="/register">Create Account</a>
+          <% } %>
+        </div>
+      </div>
+    </article>
+
+    <article class="carousel-slide slide-two" aria-hidden="true">
+      <div class="carousel-content">
+        <h1>Autumn Frames Collection</h1>
+        <p>Discover warm-tone frames crafted for comfort, style, and everyday confidence.</p>
+        <div class="hero-actions">
+          <a class="btn" href="/products">Explore Frames</a>
+          <% if (!currentUser) { %>
+            <a class="btn btn-outline" href="/register">Join Now</a>
+          <% } %>
+        </div>
+      </div>
+    </article>
+
+    <article class="carousel-slide slide-three" aria-hidden="true">
+      <div class="carousel-content">
+        <h1>Premium Lenses, Better Vision</h1>
+        <p>From anti-glare to blue-light filters, customize lenses for your daily routine.</p>
+        <div class="hero-actions">
+          <a class="btn" href="/products">Shop Lenses</a>
+          <% if (!currentUser) { %>
+            <a class="btn btn-outline" href="/register">Get Started</a>
+          <% } %>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <button class="carousel-control prev" type="button" aria-label="Previous slide">&#10094;</button>
+  <button class="carousel-control next" type="button" aria-label="Next slide">&#10095;</button>
+
+  <div class="carousel-dots" aria-label="Choose slide">
+    <button class="carousel-dot is-active" type="button" data-slide="0" aria-label="Slide 1"></button>
+    <button class="carousel-dot" type="button" data-slide="1" aria-label="Slide 2"></button>
+    <button class="carousel-dot" type="button" data-slide="2" aria-label="Slide 3"></button>
+  </div>
+</section>
+
+<section class="grid-3">
+  <article class="card">
+    <h3>Eyeglasses</h3>
+    <p>Prescription-ready frames for everyday comfort and style.</p>
+    <a href="/products">Shop now</a>
+  </article>
+  <article class="card">
+    <h3>Sunglasses</h3>
+    <p>Polarized and fashion-forward options for complete UV protection.</p>
+    <a href="/products">Shop now</a>
+  </article>
+  <article class="card">
+    <h3>Contact Lenses</h3>
+    <p>Daily and monthly lenses for clear, convenient vision.</p>
+    <a href="/products">Shop now</a>
+  </article>
+</section>
+
+<section class="home-showcase" aria-label="Featured highlights">
+  <div class="showcase-grid-top">
+    <article class="showcase-tile tile-large">
+      <img src="/uploads/ss1.jpg" alt="Featured eyeglass collection" />
+      <div class="tile-content">
+        <h3>Atelier Collection</h3>
+        <p>Minimal frames and warm tones for everyday style.</p>
+      </div>
+    </article>
+
+    <div class="stacked-tiles">
+      <article class="showcase-tile tile-small">
+        <img src="/uploads/ss2.jpg" alt="Meet an optometrist" />
+        <div class="tile-content">
+          <h3>Meet an Optometrist</h3>
+          <p>Book your next eye-care consultation online.</p>
+        </div>
+      </article>
+
+      <article class="showcase-tile tile-small">
+        <img src="/uploads/ss3.jpg" alt="Newsletter subscription" />
+        <div class="tile-content">
+          <h3>Join Our Newsletter</h3>
+          <p>Get seasonal launches and exclusive offers first.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <div class="showcase-grid-middle">
+    <article class="showcase-tile tile-article">
+      <img src="/uploads/ss4.jpg" alt="Guide to choosing glasses" />
+      <div class="tile-content">
+        <h3>Choose Better Glasses</h3>
+        <p>A quick guide to finding frames that fit your face and lifestyle.</p>
+        <a href="/products">View Article</a>
+      </div>
+    </article>
+
+    <div class="showcase-side">
+      <aside class="showcase-notes">
+        <img src="/uploads/ss8.jpg" alt="Tips and trends" class="notes-image" />
+        <h4>Tips and Trends</h4>
+        <p>Lens care essentials and new frame trends curated by our experts.</p>
+        <a href="/products">Visit the Blog</a>
+      </aside>
+
+      <div class="showcase-mini-grid">
+        <article class="showcase-tile tile-mini">
+          <img src="/uploads/ss6.jpg" alt="Eyeglass trend highlight" />
+        </article>
+        <article class="showcase-tile tile-mini">
+          <img src="/uploads/ss7.jpg" alt="Style inspiration for frames" />
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <article class="showcase-banner">
+    <img src="/uploads/ss5.jpg" alt="Visit our stores" />
+    <div class="banner-content">
+      <h3>18 Boutiques Nearby</h3>
+      <p>Find your closest store and book a fitting.</p>
+      <a class="btn" href="/products">Find a Store</a>
+    </div>
+  </article>
+</section>
+
+<script>
+  (function () {
+    const carousel = document.querySelector('.hero-carousel');
+    if (!carousel) return;
+
+    const slides = Array.from(carousel.querySelectorAll('.carousel-slide'));
+    const dots = Array.from(carousel.querySelectorAll('.carousel-dot'));
+    const prevButton = carousel.querySelector('.carousel-control.prev');
+    const nextButton = carousel.querySelector('.carousel-control.next');
+
+    let currentIndex = 0;
+    let timer;
+
+    const showSlide = (index) => {
+      currentIndex = (index + slides.length) % slides.length;
+
+      slides.forEach((slide, i) => {
+        const active = i === currentIndex;
+        slide.classList.toggle('is-active', active);
+        slide.setAttribute('aria-hidden', active ? 'false' : 'true');
+      });
+
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('is-active', i === currentIndex);
+      });
+    };
+
+    const nextSlide = () => showSlide(currentIndex + 1);
+    const previousSlide = () => showSlide(currentIndex - 1);
+
+    const startAutoPlay = () => {
+      stopAutoPlay();
+      timer = window.setInterval(nextSlide, 5000);
+    };
+
+    const stopAutoPlay = () => {
+      if (timer) {
+        window.clearInterval(timer);
+      }
+    };
+
+    prevButton.addEventListener('click', () => {
+      previousSlide();
+      startAutoPlay();
+    });
+
+    nextButton.addEventListener('click', () => {
+      nextSlide();
+      startAutoPlay();
+    });
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        showSlide(index);
+        startAutoPlay();
+      });
+    });
+
+    carousel.addEventListener('mouseenter', stopAutoPlay);
+    carousel.addEventListener('mouseleave', startAutoPlay);
+    carousel.addEventListener('focusin', stopAutoPlay);
+    carousel.addEventListener('focusout', startAutoPlay);
+
+    startAutoPlay();
+  })();
+</script>
+
+<%- include('../partials/footer') %>
