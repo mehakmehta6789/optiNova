@@ -1,0 +1,153 @@
+body:has(.admin-users-card) {
+	background: radial-gradient(circle at 15% 10%, #1c264a, #0f1530 45%, #0b1024 80%);
+}
+
+body:has(.admin-users-card)::before {
+	content: '';
+	position: fixed;
+	inset: 0;
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
+	pointer-events: none;
+	z-index: -1;
+}
+
+.admin-users-card {
+	width: min(1100px, 100%);
+	margin: 8px auto 24px;
+	padding: 26px;
+	border-radius: 14px;
+	border: 1px solid #d9e4f3;
+	background: linear-gradient(180deg, #ffffff 0%, #f6f9fe 100%);
+	box-shadow: 0 16px 34px rgba(6, 10, 24, 0.14);
+}
+
+.admin-users-header {
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	gap: 14px;
+	margin-bottom: 18px;
+}
+
+.admin-users-header h1 {
+	margin: 0;
+	color: #1f2b3f;
+	font-size: clamp(1.4rem, 1.6vw, 1.9rem);
+	letter-spacing: 0.02em;
+}
+
+.admin-users-header p {
+	margin: 0;
+	color: #5b657d;
+	font-size: 0.93rem;
+}
+
+.admin-users-table-wrap {
+	border: 1px solid #dce6f2;
+	border-radius: 12px;
+	overflow: hidden;
+	overflow-x: auto;
+	background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+}
+
+.admin-users-table {
+	margin: 0;
+	min-width: 720px;
+	border-collapse: separate;
+	border-spacing: 0;
+}
+
+.admin-users-table thead th {
+	padding: 14px 16px;
+	text-transform: uppercase;
+	font-size: 0.72rem;
+	letter-spacing: 0.08em;
+	color: #f8fbff;
+	background: linear-gradient(125deg, #1a2a5a 8%, #2d4a8c 52%, #6f8fd6 100%);
+	border-bottom: none;
+}
+
+.admin-users-table thead th:first-child {
+	border-top-left-radius: 10px;
+}
+
+.admin-users-table thead th:last-child {
+	border-top-right-radius: 10px;
+}
+
+.admin-users-table tbody tr {
+	transition: background-color 0.2s ease;
+}
+
+.admin-users-table tbody tr:nth-child(even) {
+	background: #f5f9ff;
+}
+
+.admin-users-table tbody tr:hover {
+	background: #eaf2fd;
+}
+
+.admin-users-table td {
+	padding: 14px 16px;
+	color: #334a66;
+	border-bottom: 1px solid #e3ebf6;
+	vertical-align: middle;
+}
+
+.admin-users-table tbody tr:last-child td {
+	border-bottom: none;
+}
+
+.admin-users-table td:nth-child(1) {
+	font-weight: 600;
+	color: #1f2b3f;
+}
+
+.admin-users-table td:nth-child(2) {
+	color: #58708f;
+}
+
+.role-badge {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 84px;
+	padding: 5px 10px;
+	border-radius: 999px;
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.03em;
+	text-transform: capitalize;
+	background: #e8f0fa;
+	color: #2f4767;
+}
+
+.joined-date {
+	display: inline-block;
+	color: #5b657d;
+	font-weight: 500;
+}
+
+@media (max-width: 900px) {
+	.admin-users-card {
+		padding: 18px;
+	}
+
+	.admin-users-header {
+		flex-direction: column;
+		align-items: flex-start;
+		margin-bottom: 14px;
+	}
+}
+
+@media (max-width: 640px) {
+	.admin-users-card {
+		border-radius: 10px;
+		padding: 14px;
+	}
+
+	.admin-users-table thead th,
+	.admin-users-table td {
+		padding: 11px 12px;
+	}
+}

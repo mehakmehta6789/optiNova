@@ -1,0 +1,171 @@
+/* CART PAGE SCOPE */
+.main section.card:has(form[action='/customer/cart/update']),
+.main section.card:has(form[action='/customer/orders/place']),
+.main section.card:has(form[action^='/customer/cart/remove/']) {
+	padding: 30px;
+	border-radius: 10px;
+	background: #ffffff;
+	border: 1px solid #e5e7eb;
+	margin-bottom: 25px;
+}
+
+/* CART TITLE */
+.main section.card:has(form[action='/customer/cart/update']) h1,
+.main section.card:has(form[action='/customer/orders/place']) h1,
+.main section.card:has(form[action^='/customer/cart/remove/']) h1 {
+	margin-bottom: 20px;
+	color: #1f2937;
+}
+
+/* ITEM ROW */
+.main section.card:has(form[action='/customer/cart/update']) .row-between,
+.main section.card:has(form[action='/customer/orders/place']) .row-between,
+.main section.card:has(form[action^='/customer/cart/remove/']) .row-between {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 20px;
+}
+
+/* ITEM SEPARATOR */
+.main section.card:has(form[action='/customer/cart/update']) .line,
+.main section.card:has(form[action='/customer/orders/place']) .line,
+.main section.card:has(form[action^='/customer/cart/remove/']) .line {
+	padding: 18px 0;
+	border-bottom: 1px solid #e5e7eb;
+}
+
+/* PRODUCT NAME */
+.main section.card:has(form[action='/customer/cart/update']) .row-between strong,
+.main section.card:has(form[action='/customer/orders/place']) .row-between strong,
+.main section.card:has(form[action^='/customer/cart/remove/']) .row-between strong {
+	font-size: 16px;
+	color: #111827;
+}
+
+/* PRODUCT PRICE TEXT */
+.main section.card:has(form[action='/customer/cart/update']) .row-between p,
+.main section.card:has(form[action='/customer/orders/place']) .row-between p,
+.main section.card:has(form[action^='/customer/cart/remove/']) .row-between p {
+	font-size: 14px;
+	color: #6b7280;
+}
+
+/* ACTION BUTTONS */
+.main section.card:has(form[action='/customer/cart/update']) .row-actions,
+.main section.card:has(form[action='/customer/orders/place']) .row-actions,
+.main section.card:has(form[action^='/customer/cart/remove/']) .row-actions {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+}
+
+/* QUANTITY INPUT */
+.main section.card:has(form[action='/customer/cart/update']) .row-actions input[type='number'],
+.main section.card:has(form[action='/customer/orders/place']) .row-actions input[type='number'],
+.main section.card:has(form[action^='/customer/cart/remove/']) .row-actions input[type='number'] {
+	width: 65px;
+	padding: 6px;
+	border-radius: 6px;
+	border: 1px solid #d1d5db;
+}
+
+/* BUTTON */
+.main section.card:has(form[action='/customer/cart/update']) .btn,
+.main section.card:has(form[action='/customer/orders/place']) .btn,
+.main section.card:has(form[action^='/customer/cart/remove/']) .btn {
+	padding: 8px 14px;
+	border-radius: 6px;
+	border: none;
+	cursor: pointer;
+	font-weight: 500;
+	background: #2563eb;
+	color: white;
+	transition: 0.2s ease;
+}
+
+.main section.card:has(form[action='/customer/cart/update']) .btn:hover,
+.main section.card:has(form[action='/customer/orders/place']) .btn:hover,
+.main section.card:has(form[action^='/customer/cart/remove/']) .btn:hover {
+	background: #1d4ed8;
+}
+
+/* REMOVE BUTTON */
+.main section.card:has(form[action='/customer/cart/update']) .btn-danger,
+.main section.card:has(form[action='/customer/orders/place']) .btn-danger,
+.main section.card:has(form[action^='/customer/cart/remove/']) .btn-danger {
+	background: #ef4444;
+}
+
+.main section.card:has(form[action='/customer/cart/update']) .btn-danger:hover,
+.main section.card:has(form[action='/customer/orders/place']) .btn-danger:hover,
+.main section.card:has(form[action^='/customer/cart/remove/']) .btn-danger:hover {
+	background: #dc2626;
+}
+
+/* TOTAL PRICE */
+.main section.card:has(form[action='/customer/cart/update']) h3,
+.main section.card:has(form[action='/customer/orders/place']) h3,
+.main section.card:has(form[action^='/customer/cart/remove/']) h3 {
+	margin-top: 20px;
+	font-size: 1.4rem;
+	color: #111827;
+}
+
+/* SHIPPING FORM */
+.main section.card:has(form[action='/customer/cart/update']) .auth-form,
+.main section.card:has(form[action='/customer/orders/place']) .auth-form,
+.main section.card:has(form[action^='/customer/cart/remove/']) .auth-form {
+	margin-top: 20px;
+	display: flex;
+	gap: 10px;
+}
+
+.main section.card:has(form[action='/customer/cart/update']) .auth-form input,
+.main section.card:has(form[action='/customer/orders/place']) .auth-form input,
+.main section.card:has(form[action^='/customer/cart/remove/']) .auth-form input {
+	flex: 1;
+	padding: 10px 12px;
+	border-radius: 6px;
+	border: 1px solid #d1d5db;
+}
+
+/* ERROR MESSAGE */
+.main section.card:has(form[action='/customer/cart/update']) .error,
+.main section.card:has(form[action='/customer/orders/place']) .error,
+.main section.card:has(form[action^='/customer/cart/remove/']) .error {
+	background: #fee2e2;
+	color: #b91c1c;
+	padding: 10px;
+	border-radius: 6px;
+	margin-bottom: 15px;
+}
+
+/* EMPTY CART */
+.main section.card:has(form[action='/customer/cart/update']) > p,
+.main section.card:has(form[action='/customer/orders/place']) > p,
+.main section.card:has(form[action^='/customer/cart/remove/']) > p {
+	margin-bottom: 10px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+	.main section.card:has(form[action='/customer/cart/update']) .row-between,
+	.main section.card:has(form[action='/customer/orders/place']) .row-between,
+	.main section.card:has(form[action^='/customer/cart/remove/']) .row-between {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.main section.card:has(form[action='/customer/cart/update']) .row-actions,
+	.main section.card:has(form[action='/customer/orders/place']) .row-actions,
+	.main section.card:has(form[action^='/customer/cart/remove/']) .row-actions {
+		width: 100%;
+	}
+
+	.main section.card:has(form[action='/customer/cart/update']) .auth-form,
+	.main section.card:has(form[action='/customer/orders/place']) .auth-form,
+	.main section.card:has(form[action^='/customer/cart/remove/']) .auth-form {
+		flex-direction: column;
+	}
+}

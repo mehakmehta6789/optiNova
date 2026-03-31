@@ -1,0 +1,280 @@
+<%- include('../partials/header', { title }) %>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: radial-gradient(circle at 15% 10%, #1c264a, #0f1530 45%, #0b1024 80%);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #ffffff; /* optional: better contrast with dark background */
+}
+
+/* Main Card Section */
+.card {
+  max-width: 1000px;
+  margin: 60px auto;
+  padding: 40px;
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Fade Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Heading */
+.card h1 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #0d47a1, #800000);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Empty Wishlist Text */
+.card p {
+  font-size: 18px;
+  color: #555;
+  margin-top: 20px;
+}
+
+/* Grid */
+.products-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Product Card */
+.product-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 14px;
+  width: 100%;
+  max-width: none;
+  text-align: left;
+  display: grid;
+  grid-template-columns: 126px minmax(0, 1fr) auto;
+  grid-template-rows: auto auto;
+  column-gap: 18px;
+  row-gap: 8px;
+  align-items: center;
+  transition: 0.4s ease;
+  border-left: 6px solid #800000;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.product-card::before {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 100%;
+  top: 0;
+  right: 0;
+  background: linear-gradient(90deg, #0d47a1, #800000);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.4s ease;
+}
+
+.product-card:hover::before {
+  transform: scaleY(1);
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.16);
+}
+
+/* Image */
+.product-card img {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  width: 110px;
+  height: 130px;
+  object-fit: contain;
+  background: #ffffff;
+  padding: 6px;
+  border-radius: 8px;
+  border: 1px solid #dfe5f3;
+  margin-bottom: 0;
+  transition: transform 0.4s ease;
+}
+
+.product-card:hover img {
+  transform: scale(1.03);
+}
+
+/* Product Name */
+.product-card h3 {
+  grid-column: 2;
+  grid-row: 1;
+  color: #800000;
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* Price */
+.product-card p {
+  grid-column: 2;
+  grid-row: 2;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 0;
+  color: #0d47a1;
+}
+
+/* Buttons Row */
+.row-actions {
+  grid-column: 3;
+  grid-row: 1 / span 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 0;
+}
+
+/* Base Button */
+.btn {
+  padding: 9px 16px;
+  min-width: 130px;
+  text-align: center;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(45deg, #0d47a1, #1565c0);
+  transition: 0.3s ease;
+  box-shadow: 0 4px 12px rgba(13,71,161,0.3);
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(13,71,161,0.5);
+}
+
+/* Remove Button */
+.btn-danger {
+  background: linear-gradient(45deg, #800000, #a00000);
+  box-shadow: 0 4px 12px rgba(128,0,0,0.3);
+}
+
+.btn-danger:hover {
+  box-shadow: 0 6px 18px rgba(128,0,0,0.5);
+}
+
+.inline-form {
+  display: inline;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .card {
+    padding: 25px;
+  }
+  .card h1 {
+    font-size: 26px;
+  }
+  .products-grid {
+    gap: 14px;
+  }
+  .product-card {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+    gap: 16px;
+    text-align: center;
+    border-left: none;
+    border-top: 5px solid #800000;
+  }
+  .product-card::before {
+    width: 100%;
+    height: 4px;
+    top: auto;
+    bottom: 0;
+    right: auto;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  .product-card:hover::before {
+    transform: scaleX(1);
+  }
+  .product-card img {
+    grid-column: 1;
+    grid-row: 1;
+    width: 90px;
+    height: 106px;
+    margin: 0 auto;
+  }
+  .product-card h3 {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .product-card p {
+    grid-column: 1;
+    grid-row: 3;
+  }
+  .row-actions {
+    grid-column: 1;
+    grid-row: 4;
+    align-items: center;
+  }
+  .btn {
+    min-width: 170px;
+  }
+}
+</style>
+<section class="card">
+  <h1>Your Wishlist</h1>
+
+  <% if (!wishlist.products.length) { %>
+    <p style="text-align:center;">No products in wishlist.</p>
+  <% } %>
+
+  <div class="products-grid">
+    <% wishlist.products.forEach((product) => { %>
+      <article class="product-card">
+        <img src="<%= product.image || 'https://via.placeholder.com/400x240?text=Wishlist' %>" alt="<%= product.name %>" />
+        <h3><%= product.name %></h3>
+        <p>$<%= product.price.toFixed(2) %></p>
+
+        <div class="row-actions">
+          <a class="btn" href="/products/<%= product._id %>">View</a>
+
+          <form action="/customer/cart" method="POST" class="inline-form">
+            <input type="hidden" name="productId" value="<%= product._id %>" />
+            <input type="hidden" name="quantity" value="1" />
+            <button class="btn" type="submit">Add to Cart</button>
+          </form>
+
+          <form action="/customer/wishlist/toggle" method="POST" class="inline-form">
+            <input type="hidden" name="productId" value="<%= product._id %>" />
+            <button class="btn btn-danger" type="submit">Remove</button>
+          </form>
+        </div>
+      </article>
+    <% }) %>
+  </div>
+</section>
+
+<%- include('../partials/footer') %>
+
