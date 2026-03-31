@@ -1,0 +1,33 @@
+<%- include('../partials/header', { title }) %>
+
+<section class="card admin-users-card">
+  <div class="admin-users-header">
+    <h1>User Management</h1>
+    <p>View all registered users and account roles.</p>
+  </div>
+
+  <div class="admin-users-table-wrap">
+    <table class="table admin-users-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Joined</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% users.forEach((user) => { %>
+        <tr>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+          <td><span class="role-badge"><%= user.role %></span></td>
+          <td><span class="joined-date"><%= new Date(user.createdAt).toLocaleDateString() %></span></td>
+        </tr>
+      <% }) %>
+    </tbody>
+    </table>
+  </div>
+</section>
+
+<%- include('../partials/footer') %>

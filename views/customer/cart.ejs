@@ -1,0 +1,373 @@
+<%- include('../partials/header', { title }) %>
+
+<style>
+:root {
+  --page-bg-start: #1c264a;
+  --page-bg-mid: #0f1530;
+  --page-bg-end: #0b1024;
+  --card-bg: rgba(255, 255, 255, 0.96);
+  --text-main: #1d2437;
+  --text-muted: #5b657d;
+  --line: #e6eaf3;
+  --primary-1: #1a2a5a;
+  --primary-2: #2d4a8c;
+  --primary-3: #6f8fd6;
+  --danger: #c63c3c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  color: var(--text-main);
+  background: radial-gradient(circle at 15% 10%, var(--page-bg-start), var(--page-bg-mid) 45%, var(--page-bg-end) 80%);
+  min-height: 100vh;
+  position: relative;
+}
+
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
+  pointer-events: none;
+  z-index: -1;
+}
+
+.page-header {
+  text-align: center;
+  color: aliceblue;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  padding: 25px 0 15px;
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: 34px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.breadcrumb {
+  color: #fff;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.cart-wrapper {
+  width: min(1150px, 92%);
+  margin: 10px auto 50px;
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr);
+  gap: 35px;
+  align-items: start;
+}
+
+.cart-table {
+  background: var(--card-bg);
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+  transition: 0.3s ease;
+  overflow-x: auto;
+}
+
+.cart-table:hover {
+  transform: translateY(-3px);
+}
+
+.cart-header {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr 1fr;
+  min-width: 680px;
+  background: linear-gradient(130deg, var(--primary-1) 10%, var(--primary-2) 50%, var(--primary-3) 100%);
+  color: white;
+  padding: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  border-radius: 8px;
+}
+
+.cart-row {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr 1fr;
+  min-width: 680px;
+  align-items: center;
+  padding: 18px 10px;
+  border-bottom: 1px solid var(--line);
+  transition: 0.2s ease;
+}
+
+.cart-row:hover {
+  background: #f8faff;
+}
+
+.product-info {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.product-info img {
+  width: 110px;
+  height: 130px;
+  object-fit: contain;
+  background: #ffffff;
+  padding: 6px;
+  border-radius: 8px;
+  border: 1px solid #dfe5f3;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.quantity-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quantity-value {
+  min-width: 36px;
+  padding: 6px 10px;
+  border: 1px solid #d5dced;
+  border-radius: 6px;
+  font-weight: 600;
+  color: var(--text-main);
+  background: #fff;
+  text-align: center;
+}
+
+.remove-btn {
+  color: var(--danger);
+  background: none;
+  border: none;
+  font-size: 24px;
+  line-height: 1;
+  padding: 0;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.remove-btn:hover {
+  transform: scale(1.15);
+}
+
+.summary-box {
+  background: var(--card-bg);
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  min-height: 450px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+  transition: 0.3s ease;
+}
+
+.summary-box:hover {
+  transform: translateY(-3px);
+}
+
+.summary-box h3 {
+  margin-top: 0;
+  margin-bottom: 25px;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  font-size: 15px;
+  color: var(--text-muted);
+}
+
+.summary-total {
+  color: var(--text-main);
+  font-weight: 700;
+  border-top: 1px solid var(--line);
+  padding-top: 15px;
+  font-size: 16px;
+}
+
+.checkout-btn {
+  width: 100%;
+  padding: 14px;
+  margin-top: 25px;
+  background: linear-gradient(125deg, var(--primary-1) 8%, var(--primary-2) 48%, var(--primary-3) 100%);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 8px;
+  letter-spacing: 0.2px;
+  transition: 0.3s ease;
+}
+
+.checkout-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(27, 48, 102, 0.35);
+}
+
+.coupon-section {
+  margin-top: 25px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.coupon-section input {
+  flex: 1;
+  min-width: 180px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #d5dced;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.coupon-section input:focus {
+  border-color: #90a8e8;
+  box-shadow: 0 0 0 3px rgba(45, 74, 140, 0.15);
+}
+
+.apply-btn {
+  background: linear-gradient(125deg, var(--primary-1) 8%, var(--primary-2) 48%, var(--primary-3) 100%);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  min-height: 42px;
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  transition: 0.3s;
+}
+
+.apply-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(27, 48, 102, 0.3);
+}
+
+@media (max-width: 1024px) {
+  .cart-wrapper {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .summary-box {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .page-header h1 {
+    font-size: 28px;
+  }
+
+  .cart-table,
+  .summary-box {
+    padding: 16px;
+    border-radius: 10px;
+  }
+
+  .product-info {
+    gap: 12px;
+  }
+
+  .product-info img {
+    width: 90px;
+    height: 106px;
+  }
+}
+</style>
+
+<div class="page-header">
+  <h1>Shopping Cart</h1>
+  <div class="breadcrumb">Home / Shopping Cart</div>
+</div>
+
+<div class="cart-wrapper">
+
+  <div class="cart-table">
+    <div class="cart-header">
+      <div>Product</div>
+      <div>Price</div>
+      <div>Quantity</div>
+      <div>Subtotal</div>
+    </div>
+
+    <% cart.items.forEach((item) => { %>
+      <% if (item.product) { %>
+      <div class="cart-row">
+        <div class="product-info">
+          <form action="/customer/cart/remove/<%= item.product._id %>" method="POST">
+            <button type="submit" class="remove-btn">×</button>
+          </form>
+
+          <img src="<%= item.product.image || 'https://via.placeholder.com/60' %>" />
+
+          <div>
+            <strong><%= item.product.name %></strong><br>
+            <small>$<%= item.product.price.toFixed(2) %></small>
+          </div>
+        </div>
+
+        <div>$<%= item.product.price.toFixed(2) %></div>
+
+        <div>
+          <div class="quantity-box">
+            <span class="quantity-value"><%= item.quantity %></span>
+          </div>
+        </div>
+
+        <div>
+          $<%= (item.product.price * item.quantity).toFixed(2) %>
+        </div>
+      </div>
+      <% } %>
+    <% }) %>
+
+    <div class="coupon-section">
+      <input type="text" placeholder="Coupon Code">
+      <button class="apply-btn">Apply Coupon</button>
+    </div>
+
+  </div>
+
+
+  <div class="summary-box">
+    <h3>Order Summary</h3>
+
+    <div class="summary-row">
+      <span>Items</span>
+      <span><%= cart.items.length %></span>
+    </div>
+
+    <div class="summary-row">
+      <span>Sub Total</span>
+      <span>$<%= total.toFixed(2) %></span>
+    </div>
+
+    <div class="summary-row">
+      <span>Shipping</span>
+      <span>$0.00</span>
+    </div>
+
+    <div class="summary-row summary-total">
+      <span>Total</span>
+      <span>$<%= total.toFixed(2) %></span>
+    </div>
+
+    <form action="/customer/orders/place" method="POST">
+      <button class="checkout-btn">Proceed to Checkout</button>
+    </form>
+  </div>
+
+</div>
+
+<%- include('../partials/footer') %>
+
