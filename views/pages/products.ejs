@@ -1,0 +1,64 @@
+<%- include('../partials/header', { title }) %>
+
+<section class="card">
+  <h2>Filter Products</h2>
+  <form action="/products" method="GET" class="filters">
+    <select name="category">
+      <option value="">All Categories</option>
+      <% categories.forEach((category) => { %>
+        <option value="<%= category._id %>" <%= query.category === String(category._id) ? 'selected' : '' %>>
+          <%= category.name %>
+        </option>
+      <% }) %>
+    </select>
+
+    <select name="brand">
+      <option value="">All Brands</option>
+      <% brands.forEach((brand) => { %>
+        <option value="<%= brand %>" <%= query.brand === brand ? 'selected' : '' %>><%= brand %></option>
+      <% }) %>
+    </select>
+
+    <select name="frameType">
+      <option value="">All Frame Types</option>
+      <% frameTypes.forEach((type) => { %>
+        <option value="<%= type %>" <%= query.frameType === type ? 'selected' : '' %>><%= type %></option>
+      <% }) %>
+    </select>
+
+    <select name="lensType">
+      <option value="">All Lens Types</option>
+      <% lensTypes.forEach((type) => { %>
+        <option value="<%= type %>" <%= query.lensType === type ? 'selected' : '' %>><%= type %></option>
+      <% }) %>
+    </select>
+
+    <select name="gender">
+      <option value="">All Genders</option>
+      <% genderTypes.forEach((type) => { %>
+        <option value="<%= type %>" <%= query.gender === type ? 'selected' : '' %>><%= type %></option>
+      <% }) %>
+    </select>
+
+    <input type="number" name="minPrice" placeholder="Min Price" value="<%= query.minPrice || '' %>" />
+    <input type="number" name="maxPrice" placeholder="Max Price" value="<%= query.maxPrice || '' %>" />
+    <button class="btn" type="submit">Apply</button>
+  </form>
+</section>
+
+<section class="products-grid">
+  <% if (!products.length) { %>
+    <p>No products found for selected filters.</p>
+  <% } %>
+  <% products.forEach((product) => { %>
+    <article class="card product-card">
+      <img src="<%= product.image || 'https://via.placeholder.com/400x240?text=Eyeglass' %>" alt="<%= product.name %>" />
+      <h3><%= product.name %></h3>
+      <p><%= product.brand %> • <%= product.category.name %></p>
+      <p class="price">$<%= product.price.toFixed(2) %></p>
+      <a class="btn" href="/products/<%= product._id %>">View Details</a>
+    </article>
+  <% }) %>
+</section>
+
+<%- include('../partials/footer') %>

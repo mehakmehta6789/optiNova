@@ -1,0 +1,34 @@
+<%- include('../partials/header', { title }) %>
+
+<section class="card product-detail">
+  <img src="<%= product.image || 'https://via.placeholder.com/500x320?text=Eyeglass' %>" alt="<%= product.name %>" />
+  <div>
+    <h1><%= product.name %></h1>
+    <p><strong>Brand:</strong> <%= product.brand %></p>
+    <p><strong>Category:</strong> <%= product.category.name %></p>
+    <p><strong>Frame:</strong> <%= product.frameType %></p>
+    <p><strong>Lens:</strong> <%= product.lensType %></p>
+    <p><strong>Gender:</strong> <%= product.gender %></p>
+    <p><strong>Stock:</strong> <%= product.stock %></p>
+    <p class="price">$<%= product.price.toFixed(2) %></p>
+    <p><%= product.description %></p>
+
+    <% if (currentUser && currentUser.role === 'customer') { %>
+      <form action="/customer/cart" method="POST" class="inline-form">
+        <input type="hidden" name="productId" value="<%= product._id %>" />
+        <input type="number" name="quantity" min="1" value="1" />
+        <button class="btn" type="submit">Add to Cart</button>
+      </form>
+      <form action="/customer/wishlist/toggle" method="POST" class="inline-form">
+        <input type="hidden" name="productId" value="<%= product._id %>" />
+        <button class="btn btn-outline" type="submit">Toggle Wishlist</button>
+      </form>
+    <% } else if (currentUser && currentUser.role === 'admin') { %>
+      <p>Customer purchase actions are not available for admin accounts.</p>
+    <% } else { %>
+      <p><a href="/login">Login</a> to add items to cart or wishlist.</p>
+    <% } %>
+  </div>
+</section>
+
+<%- include('../partials/footer') %>
