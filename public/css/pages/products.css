@@ -1,1 +1,152 @@
+body:has(.main form[action='/products'][method='GET']) {
+	background: radial-gradient(circle at 15% 10%, #1c264a, #0f1530 45%, #0b1024 80%);
+}
 
+body:has(.main form[action='/products'][method='GET'])::before {
+	content: '';
+	position: fixed;
+	inset: 0;
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
+	pointer-events: none;
+	z-index: -1;
+}
+
+.main section.card:has(form[action='/products'][method='GET']) {
+	padding: 28px;
+	border: 1px solid #d9e4f3;
+	background: linear-gradient(180deg, #ffffff 0%, #f6f9fe 100%);
+	box-shadow: 0 16px 34px rgba(6, 10, 24, 0.14);
+	border-radius: 14px;
+	margin-bottom: 18px;
+}
+
+.main section.card:has(form[action='/products'][method='GET']) h2 {
+	margin-bottom: 10px;
+	color: #1f2b3f;
+}
+
+/* FILTER SECTION */
+
+.main section.card:has(form[action='/products'][method='GET']) .filters {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+	gap: 12px;
+	margin-top: 15px;
+}
+
+.main section.card:has(form[action='/products'][method='GET']) .filters select,
+.main section.card:has(form[action='/products'][method='GET']) .filters input {
+	padding: 10px 12px;
+	border-radius: 6px;
+	border: 1px solid #d1d5db;
+	font-size: 14px;
+	background: #fff;
+	transition: all 0.2s ease;
+}
+
+.main section.card:has(form[action='/products'][method='GET']) .filters select:focus,
+.main section.card:has(form[action='/products'][method='GET']) .filters input:focus {
+	border-color: #2563eb;
+	outline: none;
+	box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+.main section.card:has(form[action='/products'][method='GET']) .filters button {
+	grid-column: span 2;
+	margin-top: 5px;
+}
+
+/* PRODUCTS GRID */
+
+.main section.card:has(form[action='/products'][method='GET']) + .products-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+	gap: 25px;
+	margin-top: 35px;
+}
+
+/* PRODUCT CARD */
+
+.main section.card:has(form[action='/products'][method='GET']) + .products-grid .product-card {
+	padding: 18px;
+	border-radius: 10px;
+	border: 1px solid #e5e7eb;
+	background: white;
+	text-align: center;
+	transition: all 0.25s ease;
+}
+
+.main section.card:has(form[action='/products'][method='GET']) + .products-grid .product-card:hover {
+	transform: translateY(-6px);
+	box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* PRODUCT IMAGE */
+
+.main section.card:has(form[action='/products'][method='GET']) + .products-grid .product-card img {
+	width: 100%;
+	height: 200px;
+	object-fit: cover;
+	border-radius: 8px;
+	margin-bottom: 12px;
+}
+
+/* PRODUCT TITLE */
+
+.main section.card:has(form[action='/products'][method='GET']) + .products-grid .product-card h3 {
+	font-size: 1.1rem;
+	margin-bottom: 6px;
+	color: #1f2937;
+}
+
+/* PRODUCT DETAILS */
+
+.main section.card:has(form[action='/products'][method='GET']) + .products-grid .product-card p {
+	font-size: 14px;
+	color: #6b7280;
+	margin-bottom: 6px;
+}
+
+/* PRICE */
+
+.main section.card:has(form[action='/products'][method='GET']) + .products-grid .product-card .price {
+	font-size: 1.1rem;
+	font-weight: 600;
+	color: #2563eb;
+	margin-bottom: 10px;
+}
+
+/* BUTTON */
+
+.main section.card:has(form[action='/products'][method='GET']) + .products-grid .product-card .btn {
+	padding: 8px 14px;
+	font-size: 14px;
+}
+
+/* FILTER CARD TITLE */
+
+.main section.card:has(form[action='/products'][method='GET']) h2 {
+	margin-bottom: 10px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+	.main section.card:has(form[action='/products'][method='GET']) .filters {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.main section.card:has(form[action='/products'][method='GET']) .filters button {
+		grid-column: span 2;
+	}
+}
+
+@media (max-width: 500px) {
+	.main section.card:has(form[action='/products'][method='GET']) .filters {
+		grid-template-columns: 1fr;
+	}
+
+	.main section.card:has(form[action='/products'][method='GET']) + .products-grid {
+		grid-template-columns: 1fr;
+	}
+}
