@@ -1,0 +1,42 @@
+<%- include('../partials/header', { title }) %>
+
+<section class="profile-page">
+  <article class="profile-card">
+    <div class="profile-avatar-wrap">
+      <div class="profile-avatar">
+        <%= (user.name || 'User').split(' ').map((part) => part[0]).slice(0, 2).join('').toUpperCase() %>
+      </div>
+    </div>
+
+    <div class="profile-top">
+      <h1><%= user.name %></h1>
+      <p class="profile-subtitle text-capitalize"><%= user.role %></p>
+    </div>
+
+    <ul class="profile-meta">
+      <li>
+        <span class="meta-icon">@</span>
+        <div>
+          <p class="meta-label">Email</p>
+          <p class="meta-value"><%= user.email %></p>
+        </div>
+      </li>
+      <li>
+        <span class="meta-icon">ID</span>
+        <div>
+          <p class="meta-label">Role</p>
+          <p class="meta-value text-capitalize"><%= user.role %></p>
+        </div>
+      </li>
+      <li>
+        <span class="meta-icon">D</span>
+        <div>
+          <p class="meta-label">Joined</p>
+          <p class="meta-value"><%= new Date(user.createdAt).toLocaleDateString() %></p>
+        </div>
+      </li>
+    </ul>
+  </article>
+</section>
+
+<%- include('../partials/footer') %>

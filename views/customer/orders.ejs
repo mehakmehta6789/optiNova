@@ -1,0 +1,49 @@
+<%- include('../partials/header', { title }) %>
+
+<section class="card orders-page">
+  <div class="orders-head">
+    <p class="orders-kicker">My Purchases</p>
+    <h1>Order History</h1>
+    <p class="orders-subtitle">Track order progress, review totals, and see what you ordered.</p>
+  </div>
+
+  <% if (!orders.length) { %>
+    <div class="orders-empty">
+      <h2>No orders yet</h2>
+      <p>Once you place an order, your history will appear here.</p>
+      <a class="btn" href="/products">Start Shopping</a>
+    </div>
+  <% } %>
+
+  <% orders.forEach((order) => { %>
+    <article class="line order-card">
+      <div class="order-card-head">
+        <div>
+          <p class="order-label">Order ID</p>
+          <h3>#<%= order._id %></h3>
+        </div>
+        <span class="order-status status-<%= order.status %>"><%= order.status %></span>
+      </div>
+
+      <div class="order-meta-grid">
+        <p><span>Total</span><strong>$<%= order.totalAmount.toFixed(2) %></strong></p>
+        <p><span>Placed On</span><strong><%= new Date(order.createdAt).toLocaleString() %></strong></p>
+        <p><span>Shipping Address</span><strong><%= order.shippingAddress %></strong></p>
+      </div>
+
+      <div class="order-items">
+        <h4>Items</h4>
+        <ul>
+          <% order.items.forEach((item) => { %>
+            <li>
+              <span><%= item.name %> x <%= item.quantity %></span>
+              <strong>$<%= (item.price * item.quantity).toFixed(2) %></strong>
+            </li>
+          <% }) %>
+        </ul>
+      </div>
+    </article>
+  <% }) %>
+</section>
+
+<%- include('../partials/footer') %>

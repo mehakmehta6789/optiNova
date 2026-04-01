@@ -1,0 +1,250 @@
+body:has(.orders-page) {
+	background: radial-gradient(circle at 15% 10%, #1c264a, #0f1530 45%, #0b1024 80%);
+}
+
+body:has(.orders-page)::before {
+	content: '';
+	position: fixed;
+	inset: 0;
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
+	pointer-events: none;
+	z-index: -1;
+}
+
+.orders-page {
+	--orders-ink: #111827;
+	padding: 30px;
+	border: 1px solid #dce6f2;
+	background:
+		radial-gradient(circle at 95% 5%, rgba(47, 71, 103, 0.16), transparent 34%),
+		radial-gradient(circle at 0% 100%, rgba(134, 162, 193, 0.14), transparent 36%),
+		linear-gradient(180deg, #ffffff 0%, #f4f8fd 100%);
+	color: var(--orders-ink);
+}
+
+.orders-head {
+	margin-bottom: 22px;
+}
+
+.orders-kicker {
+	color: #1f2b3f;
+	font-size: 0.72rem;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	font-weight: 700;
+}
+
+.orders-head h1 {
+	margin-top: 4px;
+	font-size: clamp(1.5rem, 2vw, 2rem);
+	line-height: 1.2;
+	color: #1f2b3f;
+}
+
+.orders-subtitle {
+	margin-top: 8px;
+	color: #42556f;
+	max-width: 620px;
+}
+
+.orders-empty {
+	border: 1px dashed #7f9ec0;
+	border-radius: 14px;
+	padding: 24px;
+	text-align: center;
+	background: linear-gradient(180deg, #f1f6fc 0%, #f8fbff 100%);
+}
+
+.orders-empty h2 {
+	font-size: 1.25rem;
+	color: var(--orders-ink);
+}
+
+.orders-empty p {
+	margin: 8px 0 16px;
+	color: #6b7280;
+}
+
+.order-card {
+	margin-top: 16px;
+	border-top: none;
+	border: 1px solid #dfe8f3;
+	border-radius: 14px;
+	padding: 16px;
+	background: linear-gradient(180deg, #ffffff 0%, #f9fbff 100%);
+	box-shadow: 0 10px 26px rgba(6, 10, 24, 0.1);
+	transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.order-card:hover {
+	transform: translateY(-3px);
+	border-color: #bfd0e7;
+	box-shadow: 0 16px 32px rgba(31, 43, 63, 0.2);
+}
+
+.order-card-head {
+	display: flex;
+	justify-content: space-between;
+	gap: 12px;
+	align-items: flex-start;
+}
+
+.order-label {
+	font-size: 0.7rem;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: #58708f;
+	font-weight: 700;
+}
+
+.order-card h3 {
+	margin-top: 4px;
+	font-size: 1rem;
+	overflow-wrap: anywhere;
+	color: #1f2b3f;
+}
+
+.order-status {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 92px;
+	text-align: center;
+	border-radius: 999px;
+	padding: 6px 10px;
+	text-transform: capitalize;
+	font-weight: 700;
+	font-size: 0.76rem;
+}
+
+.status-pending {
+	background: #edf3fb;
+	color: #2b4362;
+}
+
+.status-processing {
+	background: #d8e5f3;
+	color: #1f2b3f;
+}
+
+.status-shipped {
+	background: #e2ebf6;
+	color: #23344d;
+}
+
+.status-delivered {
+	background: #d2e2f3;
+	color: #1f2b3f;
+}
+
+.status-cancelled {
+	background: #edf1f6;
+	color: #44566f;
+}
+
+.order-meta-grid {
+	margin-top: 14px;
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 12px;
+}
+
+.order-meta-grid p {
+	border: 1px solid #e0e9f3;
+	border-radius: 10px;
+	padding: 10px;
+	background: #f6faff;
+	transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.order-card:hover .order-meta-grid p {
+	border-color: #c7d8ec;
+	background: #fbfdff;
+}
+
+.order-meta-grid p span {
+	display: block;
+	font-size: 0.72rem;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	color: #58708f;
+	font-weight: 700;
+}
+
+.order-meta-grid p strong {
+	display: block;
+	margin-top: 6px;
+	color: var(--orders-ink);
+	font-size: 0.95rem;
+	line-height: 1.45;
+}
+
+.order-items {
+	margin-top: 14px;
+	border-top: 1px dashed #c5d6ea;
+	padding-top: 12px;
+}
+
+.order-items h4 {
+	margin-bottom: 8px;
+}
+
+.order-items ul {
+	list-style: none;
+}
+
+.order-items li {
+	display: flex;
+	justify-content: space-between;
+	gap: 16px;
+	padding: 7px 0;
+	border-bottom: 1px solid #e9eff6;
+	transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.order-items li:hover {
+	background: #f2f7fd;
+	transform: translateX(2px);
+}
+
+.order-items li:last-child {
+	border-bottom: none;
+}
+
+.order-items li span {
+	color: #334a66;
+}
+
+.order-items li strong {
+	color: var(--orders-ink);
+}
+
+@media (max-width: 900px) {
+	.orders-page {
+		padding: 20px;
+	}
+
+	.order-meta-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 640px) {
+	.order-card {
+		padding: 14px;
+	}
+
+	.order-card-head {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.order-status {
+		min-width: auto;
+	}
+
+	.order-items li {
+		flex-direction: column;
+		gap: 4px;
+	}
+}
